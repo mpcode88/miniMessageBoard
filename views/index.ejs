@@ -1,11 +1,18 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
+<head>
+  <title><%= title %></title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body>
+  <h1><%= title %></h1>
+  <a href="/new">Post a New Message</a> <!-- Link to the /new route -->
+  <ul>
+    <% messages.forEach(function(message) { %>
+      <li>
+        <strong><%= message.user %></strong>: <%= message.text %> (added on <%= message.added.toLocaleString() %>)
+      </li>
+    <% }) %>
+  </ul>
+</body>
 </html>
